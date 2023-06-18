@@ -1,0 +1,17 @@
+def countDistinctIntegers(self, nums: List[int]) -> int:
+    nums = [1,13,10,12,31]
+    distinct = 0
+    reversed1 = []
+    for i in nums:
+        revers = 0
+        while i > 0:
+
+            remainder = i % 10
+            revers = (revers * 10) + remainder
+            i = i // 10
+        reversed1.append(revers)
+    sum_of_lists = nums + reversed1
+    for s in reversed1:
+        if s not in nums:
+            nums.append(s)
+    return len(nums)
